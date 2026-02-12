@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Valentine?&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --pink:#ffd6e7; --red:#c4002b; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0; height:100vh; overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; justify-content:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--pink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap { text-align:center; padding:24px; position:relative; width:min(900px, 92vw); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { margin:0 0 20px; color:var(--red); font-size:clamp(36px, 5vw, 64px); letter-spacing:0.5px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btnRow { display:flex; gap:16px; justify-content:center; align-items:center; position:relative; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.yes {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--red); color:white; border:none; cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:28px; padding:18px 40px; border-radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 12px 30px rgba(0,0,0,0.15);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateZ(0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.yes:active { transform: scale(0.98); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#no {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute; left:70%; top:75%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:transparent; color:var(--red);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:2px solid rgba(196,0,43,0.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px; padding:8px 14px; border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer; user-select:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 8px 18px rgba(0,0,0,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hint { margin-top:18px; color:rgba(196,0,43,0.75); font-size:14px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrap" id="stage"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Will you be my valentine?&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="btnRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="yes" id="yesBtn"&gt;YES&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="no" aria-label="No"&gt;no&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hint"&gt;(Try clicking “no” 🙂)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const noBtn = document.getElementById("no");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const yesBtn = document.getElementById("yesBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const stage = document.getElementById("stage");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Go to the reply page</p>
+<p class="p1"><span class="Apple-converted-space">    </span>yesBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.location.href = "./reply.html";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Motion model</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let vx = 1.6, vy = 1.2; // base velocity</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let last = performance.now();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function moveNo(dt) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rectStage = stage.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rectNo = noBtn.getBoundingClientRect();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Position relative to viewport</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let x = rectNo.left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let y = rectNo.top;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>x += vx * dt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>y += vy * dt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Bounce within stage bounds (with padding)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const pad = 10;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const minX = rectStage.left + pad;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const maxX = rectStage.right - rectNo.width - pad;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const minY = rectStage.top + pad;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const maxY = rectStage.bottom - rectNo.height - pad;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (x &lt;= minX || x &gt;= maxX) vx *= -1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (y &lt;= minY || y &gt;= maxY) vy *= -1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>x = clamp(x, minX, maxX);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>y = clamp(y, minY, maxY);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Apply as absolute position inside stage using transforms:</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Convert viewport x/y to stage-local coordinates</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const localX = x - rectStage.left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const localY = y - rectStage.top;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.left = localX + "px";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.top<span class="Apple-converted-space">  </span>= localY + "px";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Continuous movement</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function tick(t){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const dt = (t - last) * 0.06; // scale to feel lively</p>
+<p class="p1"><span class="Apple-converted-space">      </span>last = t;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>moveNo(dt);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>requestAnimationFrame(tick);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>requestAnimationFrame(tick);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Dodge on hover / pointer near</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function dodgeFrom(clientX, clientY){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rectStage = stage.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rectNo = noBtn.getBoundingClientRect();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const noCenterX = rectNo.left + rectNo.width/2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const noCenterY = rectNo.top + rectNo.height/2;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const dx = noCenterX - clientX;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const dy = noCenterY - clientY;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Push velocity away from pointer</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const mag = Math.max(1, Math.hypot(dx, dy));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const push = 6.0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>vx += (dx / mag) * push;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>vy += (dy / mag) * push;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Keep speed in a sane range</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const speed = Math.hypot(vx, vy);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const maxSpeed = 9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (speed &gt; maxSpeed) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>vx = (vx / speed) * maxSpeed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>vy = (vy / speed) * maxSpeed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>noBtn.addEventListener("mouseenter", (e) =&gt; dodgeFrom(e.clientX, e.clientY));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener("mousemove", (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// If cursor gets close, dodge</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rectNo = noBtn.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cx = rectNo.left + rectNo.width/2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cy = rectNo.top + rectNo.height/2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const d = Math.hypot(cx - e.clientX, cy - e.clientY);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (d &lt; 140) dodgeFrom(e.clientX, e.clientY);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// If someone manages to click "no", be cheeky</p>
+<p class="p1"><span class="Apple-converted-space">    </span>noBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert("Nice try 😄");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
